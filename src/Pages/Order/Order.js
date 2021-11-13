@@ -19,6 +19,7 @@ const Order = ({ bike }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const newData = { ...newBikeData, ...data }
+        console.log(newData);
         axios.post('http://localhost:5000/userOrder', newData)
             .then(res => {
                 if (res.data.insertedId) {
@@ -27,6 +28,7 @@ const Order = ({ bike }) => {
                 }
             });
     };
+    console.log(bike);
 
     return (
         <Grid container spacing={6}>

@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBt7ttTcdb0XMN47VsLDIcnL2X5aO9kXDo",
-    authDomain: "yamaha-motorcycle.firebaseapp.com",
-    projectId: "yamaha-motorcycle",
-    storageBucket: "yamaha-motorcycle.appspot.com",
-    messagingSenderId: "165444742551",
-    appId: "1:165444742551:web:7487fb7acd6671cfd268d2"
+    apiKey: "AIzaSyDzxsgdOJPUTTXdbGn2VcCy5cNe_uZIyuQ",
+    authDomain: "yamaha-motorcycle-ec33b.firebaseapp.com",
+    projectId: "yamaha-motorcycle-ec33b",
+    storageBucket: "yamaha-motorcycle-ec33b.appspot.com",
+    messagingSenderId: "232960891352",
+    appId: "1:232960891352:web:ab631d071d0af1a080faad"
 };
 
 export default firebaseConfig;

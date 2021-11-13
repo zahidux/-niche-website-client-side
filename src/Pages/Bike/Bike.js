@@ -1,10 +1,11 @@
 import { Button, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Bike = ({ bike }) => {
-    const { name, description, img, price } = bike;
-    console.log(Bike);
+    const { _id, name, description, img, price } = bike;
+    const url = `/order/${_id}`;
     return (
         <Grid item xs={12} sm={6} md={3}>
             <Paper elevation={0} sx={{ padding: 2, border: '1px solid #bdbdbd', borderRadius: 0 }}>
@@ -19,7 +20,7 @@ const Bike = ({ bike }) => {
                     <Typography sx={{ textAlign: 'left', fontWeight: 'medium' }} variant="h6">
                         Price: <span style={{ color: 'red' }}>${price}</span>
                     </Typography>
-                    <Button variant="contained">Purcess Now</Button>
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to={url}><Button className="btn_regular">Buy Now</Button></NavLink>
                 </Box>
             </Paper>
         </Grid>

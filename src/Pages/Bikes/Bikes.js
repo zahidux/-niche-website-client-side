@@ -11,7 +11,7 @@ const Bikes = () => {
     console.log(bikes);
 
     useEffect(() => {
-        fetch('http://localhost:5000/yamaha')
+        fetch('http://localhost:5000/motorcycle')
             .then(res => res.json())
             .then(data => setBikes(data))
     }, [])

@@ -13,12 +13,13 @@ const Orders = () => {
     const [bike, setBike] = useState({});
 
 
-    const url = `http://localhost:5000/bikes/${bikeId}`;
+    const url = `http://localhost:5000/motorcycle/${bikeId}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBike(data))
-    }, [bikeId])
+    }, [])
+    console.log(bikeId);
 
     if (isLoading) {
         return (

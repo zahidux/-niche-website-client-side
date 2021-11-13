@@ -1,15 +1,19 @@
 import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 
 const Login = () => {
-    // const { loginUser, googleSignIn } = useAuth();
+    const { passwordLoginUser, googleSignIn } = useAuth();
     const [loginData, setLoginData] = useState({});
 
-    // const location = useLocation();
-    // const history = useHistory();
+    console.log(loginData);
+
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home';
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -20,25 +24,25 @@ const Login = () => {
     }
     const handleLoginSubmit = e => {
         e.preventDefault();
-        // loginUser(loginData.email, loginData.password, location, history)
+        passwordLoginUser(loginData.email, loginData.password, location, history)
     }
 
-    const handleGoogleSignIn = (location, history) => {
-        // googleSignIn()
+    const handleGoogleSignIn = () => {
+        googleSignIn(history, redirect_uri);
     }
 
     return (
-        <div>
+        <div style={{ background: '#00FFFF', backgroundPosition: 'center', backgroundSize: 'cover' }}>
             <Header></Header>
             <Container>
-                <Grid container spacing={2}>
+                <Grid sx={{ py: 8 }} container spacing={2}>
                     <Grid item sx={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Paper elevation={24} sx={{ width: '380px' }} >
                             <Box sx={{ p: 7 }}>
                                 <Typography sx={{ mb: 4 }} variant="h5">Login</Typography>
                                 <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
                                     <TextField
-                                        label="User name"
+                                        label="User Email"
                                         id="standard-size-small"
                                         variant="standard"
                                         name="email"
@@ -65,7 +69,7 @@ const Login = () => {
                         </Paper>
                     </Grid>
                     <Grid item sx={12} md={6}>
-                        <img style={{ width: '90%' }} src="https://i.ibb.co/9NVNhf4/login.png" alt="" />
+
                     </Grid>
                 </Grid>
             </Container>

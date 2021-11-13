@@ -1,34 +1,35 @@
 import { Alert, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 
 const Register = () => {
-    // const { user, registerUser, authError } = useAuth();
-    // const history = useHistory();
-    const [loginData, setLoginData] = useState({});
+    const { user, error, registerUser } = useAuth();
+    const history = useHistory();
+    const [registerData, setRegisterData] = useState({});
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-        const newLoginData = { ...loginData };
-        newLoginData[field] = value;
-        setLoginData(newLoginData)
+        const newRegisterData = { ...registerData };
+        newRegisterData[field] = value;
+        setRegisterData(newRegisterData)
     }
     const handleLoginSubmit = e => {
-        if (loginData.password !== loginData.password2) {
+        if (registerData.password !== registerData.password2) {
             alert('Password did not Match');
             return
         }
-        // registerUser(loginData.email, loginData.password, loginData.name, history)
+        registerUser(registerData.name, registerData.email, registerData.password, history)
         e.preventDefault();
     }
 
     return (
-        <div>
+        <div style={{ background: 'url(https://i.ibb.co/tPgPNwp/bg5.jpg)', backgroundPosition: 'center', backgroundSize: 'cover' }}>
             <Header></Header>
             <Container>
-                <Grid container spacing={2}>
+                <Grid sx={{ py: 8 }} container spacing={2}>
                     <Grid item sx={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Paper elevation={24} sx={{ width: '380px' }} >
                             <Box sx={{ p: 7 }}>
@@ -74,17 +75,19 @@ const Register = () => {
                                         <Button sx={{ mt: 2, textTransform: 'capitalize' }} variant="text">Already Register? Please Login</Button>
                                     </NavLink>
                                 </form>
+                                <Box>
+                                    {
+                                        user?.email && <Alert sx={{ justifyContent: 'center' }} severity="success">Register Success</Alert>
+                                    }
+
+                                    {
+                                        error && <Alert sx={{ justifyContent: 'center' }} severity="error">{error}</Alert>
+                                    }
+                                </Box>
                             </Box>
-                            {/* {
-                                user?.email && <Alert severity="success">Register Success</Alert>
-                            }
-                            {
-                                authError && <Alert severity="error">{authError}</Alert>
-                            } */}
                         </Paper>
                     </Grid>
                     <Grid item sx={12} md={6}>
-                        <img style={{ width: '90%' }} src="https://i.ibb.co/9NVNhf4/login.png" alt="" />
                     </Grid>
                 </Grid>
             </Container>
