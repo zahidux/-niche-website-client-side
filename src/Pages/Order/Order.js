@@ -20,7 +20,7 @@ const Order = ({ bike }) => {
     const onSubmit = data => {
         const newData = { ...newBikeData, ...data }
         console.log(newData);
-        axios.post('http://localhost:5000/userOrder', newData)
+        axios.post('https://tranquil-earth-61736.herokuapp.com/userOrder', newData)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');

@@ -10,7 +10,6 @@ const Login = () => {
     const [loginData, setLoginData] = useState({});
 
     console.log(loginData);
-
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';

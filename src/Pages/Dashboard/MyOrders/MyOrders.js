@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
     const { user } = useAuth();
-    const url = `http://localhost:5000/userOrder/?email=${user.email}`;
+    const url = `https://tranquil-earth-61736.herokuapp.com/userOrder/?email=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -17,7 +17,7 @@ const MyOrders = () => {
     const handleOrderDelete = orderId => {
         const proceed = window.confirm('Are you sure, You want to Cancel this Order?')
         if (proceed) {
-            const url = `http://localhost:5000/order/${orderId}`;
+            const url = `https://tranquil-earth-61736.herokuapp.com/order/${orderId}`;
             fetch(url, {
                 method: 'DELETE',
             })

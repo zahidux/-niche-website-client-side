@@ -52,27 +52,18 @@ function Dashboard(props) {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Toolbar />
             <Divider />
-            <NavLink className="dash_btn" to={`${url}`}><DashboardIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }} > Dashboard</Button></NavLink>
+            <NavLink className="dash_btn" to={`${url}`}><Button sx={{
+                textAlign: 'left', display: 'block', color: 'blue',
+            }} > Dashboard</Button></NavLink>
 
-            <NavLink className="dash_btn" to="/Home"><HomeIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}> Home</Button></NavLink>
+            <NavLink className="dash_btn" to="/Home"><Button sx={{ textAlign: 'left', display: 'block', color: 'blue' }}> Home</Button></NavLink>
 
-            <NavLink className="dash_btn" to="/bike"><DirectionsBikeIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>Bikes</Button></NavLink>
+            <NavLink className="dash_btn" to="/bike"><Button sx={{ textAlign: 'left', display: 'block', color: 'blue' }}>Bikes</Button></NavLink>
 
-            <NavLink className="dash_btn" to={`${path}/pay`}><PaymentIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>Pay</Button></NavLink>
+            <NavLink className="dash_btn" to={`${path}/pay`}><Button sx={{ textAlign: 'left', display: 'block', color: 'blue' }}>Pay</Button></NavLink>
 
-            <NavLink className="dash_btn" to={`${path}/myorder`}><ProductionQuantityLimitsIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>My Orders</Button></NavLink>
+            <NavLink className="dash_btn" to={`${path}/myorder`}><Button sx={{ textAlign: 'left', display: 'block', color: 'blue' }}>My Orders</Button></NavLink>
 
-            {
-                admin && <>
-                    <NavLink className="dash_btn" to={`${path}/makeAdmin`}><AdminPanelSettingsIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>Make Admin</Button></NavLink>
-
-                    <NavLink className="dash_btn" to={`${path}/addbike`}><AddBusinessIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>Add Bike</Button></NavLink>
-
-                    <NavLink className="dash_btn" to={`${path}/manage-orders`}><SettingsIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>Manage All Order</Button></NavLink>
-
-                    <NavLink className="dash_btn" to={`${path}/manage-products`}><ManageSearchIcon sx={{ color: 'white' }} /><Button sx={{ textAlign: 'left', display: 'block', color: 'white' }}>Manage Products</Button></NavLink>
-                </>
-            }
 
             <Button className="dash_btn" sx={{ color: '#ffffff', mt: 1, background: 'red', borderRadius: 0 }} variant="contained" onClick={logOut}>LogOut</Button>
 

@@ -13,13 +13,13 @@ const Orders = () => {
     const [bike, setBike] = useState({});
 
 
-    const url = `http://localhost:5000/motorcycle/${bikeId}`;
+    const url = `https://tranquil-earth-61736.herokuapp.com/motorcycle/${bikeId}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBike(data))
-    }, [])
-    console.log(bikeId);
+    }, [bikeId])
+    console.log(bike);
 
     if (isLoading) {
         return (

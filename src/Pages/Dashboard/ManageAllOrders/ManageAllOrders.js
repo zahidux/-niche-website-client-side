@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/order')
+        fetch('https://tranquil-earth-61736.herokuapp.com/order')
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, [])
@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
     const handleOrderDelete = orderId => {
         const proceed = window.confirm('Are you sure, You want to Cancel this Order?')
         if (proceed) {
-            const url = `http://localhost:5000/order/${orderId}`;
+            const url = `https://tranquil-earth-61736.herokuapp.com/order/${orderId}`;
             fetch(url, {
                 method: 'DELETE',
             })

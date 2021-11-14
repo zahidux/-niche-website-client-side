@@ -1,6 +1,7 @@
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -16,7 +17,7 @@ const Banner = () => {
                                 <Typography variant="body2" component="h2" sx={{ margin: '20px 0' }}>
                                     Yamaha Motor is a Japanese manufacturer of motorcycles, marine products such as boats and outboard motors.
                                 </Typography>
-                                <Button variant="contained">See more</Button>
+                                <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/bike"><Button variant="contained">Motorcycle</Button></NavLink>
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={6}>

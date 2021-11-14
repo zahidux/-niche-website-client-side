@@ -8,7 +8,7 @@ const LatestBikes = () => {
     const [bikes, setBikes] = useState([]);
 
     useEffect(() => {
-        fetch('./bikes.json')
+        fetch('https://tranquil-earth-61736.herokuapp.com/motorcycle')
             .then(res => res.json())
             .then(data => setBikes(data))
     }, [])

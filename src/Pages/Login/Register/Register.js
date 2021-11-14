@@ -26,7 +26,7 @@ const Register = () => {
     }
 
     return (
-        <div style={{ background: 'url(https://i.ibb.co/tPgPNwp/bg5.jpg)', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+        <div style={{ background: 'url(https://i.ibb.co/XpwNh7N/1.jpg)', backgroundPosition: 'center', backgroundSize: 'cover' }}>
             <Header></Header>
             <Container>
                 <Grid sx={{ py: 8 }} container spacing={2}>
